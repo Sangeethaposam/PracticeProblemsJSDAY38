@@ -1,0 +1,29 @@
+function convertTemperature(temperature, conversion) {
+  let result;
+
+  if (temperature < 0 || temperature > 100) {
+    console.log("Temperature is outside the range of freezing point and boiling point of water.");
+    return;
+  }
+
+  switch (conversion) {
+    case "CtoF":
+      result = (temperature * 9/5) + 32;
+      console.log(`${temperature} °C is equal to ${result} °F.`);
+      break;
+    case "FtoC":
+      result = (temperature - 32) * 5/9;
+      console.log(`${temperature} °F is equal to ${result} °C.`);
+      break;
+    default:
+      console.log("Invalid conversion selection. Please select either 'CtoF' or 'FtoC'.");
+      break;
+  }
+
+  return result;
+}
+convertTemperature(25, "CtoF"); 
+convertTemperature(50, "FtoC"); 
+convertTemperature(-10, "CtoF"); 
+convertTemperature(200, "FtoC"); 
+convertTemperature(30, "invalid"); 
