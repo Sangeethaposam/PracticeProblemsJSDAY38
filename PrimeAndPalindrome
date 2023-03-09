@@ -1,0 +1,36 @@
+function isPrime(n) {
+  if (n < 2) {
+    return false;
+  }
+  for (let i = 2; i <= Math.sqrt(n); i++) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// Get the palindrome of a number
+function getPalindrome(n) {
+  return parseInt(n.toString().split("").reverse().join(""));
+}
+
+// Check if a number and its palindrome are prime
+function checkPrimeAndPalindrome(n) {
+  if (!isPrime(n)) {
+    console.log(`${n} is not a prime number.`);
+    return;
+  }
+  const palindrome = getPalindrome(n);
+  if (isPrime(palindrome)) {
+    console.log(`${n} is a prime number, and its palindrome ${palindrome} is also prime.`);
+  } else {
+    console.log(`${n} is a prime number, but its palindrome ${palindrome} is not prime.`);
+  }
+}
+
+checkPrimeAndPalindrome(17); 
+checkPrimeAndPalindrome(31); 
+checkPrimeAndPalindrome(11); 
+checkPrimeAndPalindrome(13); 
+checkPrimeAndPalindrome(6);
